@@ -21,9 +21,9 @@ namespace Board
     {
         Surface background;
         Surface screen;
+
         ulong tick;
         Random random;
-
         List<Flash> flashes;
 
         Func<Point> next_point;
@@ -38,13 +38,12 @@ namespace Board
 
         public Program()
         {
-            next_gen = () => 100 + random.Next(100); // ~150 ish frames
+            next_gen = () => 50 + random.Next(150);
 
             next_color = () =>
             {
-                KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
-                KnownColor randomColorName = names[random.Next(names.Length)];
-                return Color.FromKnownColor(randomColorName);
+                var names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+                return Color.FromKnownColor(names[random.Next(names.Length)]);
             };
 
             next_point = () => new Point
@@ -64,9 +63,6 @@ namespace Board
             screen = Video.SetVideoMode(width, height);
             background = new Surface("resources/image.jpeg").Convert(screen);
 
-
-            next = next_gen();
-
             Events.Tick += Events_Tick;
             Events.Run();
         }
@@ -74,7 +70,7 @@ namespace Board
         void Events_Tick(object sender, TickEventArgs e)
         {
             // randomly start "animations"
-            if (--next == 0)
+            if (--next < 0)
             {
                 var flash = new Flash { Surface = next_surface(), Point = next_point(), Tick = random.Next(100, 1000) };
                 flash.Surface.Alpha = (byte)random.Next(100, 255);
@@ -103,12 +99,10 @@ namespace Board
                 screen.Blit(flash.Surface, flash.Point);
                 flash.Tick--;
             }
-
             flashes = keep;
 
             screen.Update();
             tick++;
-            //Console.WriteLine(tick);
         }
 
 
