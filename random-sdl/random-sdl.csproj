@@ -32,13 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SdlDotNet">
+      <HintPath>..\libs\SdlDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tao.Sdl">
+      <HintPath>..\libs\Tao.Sdl.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -46,6 +53,37 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="libs\COPYING" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs\jpeg.dll" />
+    <Content Include="libs\libfreetype-6.dll" />
+    <Content Include="libs\libogg-0.dll" />
+    <Content Include="libs\libpng12-0.dll" />
+    <Content Include="libs\libtiff-3.dll" />
+    <Content Include="libs\libvorbis-0.dll" />
+    <Content Include="libs\libvorbisfile-3.dll" />
+    <Content Include="libs\Readme-gfx.txt" />
+    <Content Include="libs\Readme-image.txt" />
+    <Content Include="libs\Readme-mixer.txt" />
+    <Content Include="libs\Readme-net.txt" />
+    <Content Include="libs\Readme-SDL.txt" />
+    <Content Include="libs\Readme-smpeg.txt" />
+    <Content Include="libs\Readme-ttf.txt" />
+    <Content Include="libs\SDL.dll" />
+    <Content Include="libs\SDL_gfx.dll" />
+    <Content Include="libs\SDL_image.dll" />
+    <Content Include="libs\SDL_mixer.dll" />
+    <Content Include="libs\SDL_net.dll" />
+    <Content Include="libs\SDL_ttf.dll" />
+    <Content Include="libs\smpeg.dll" />
+    <Content Include="libs\zlib1.dll" />
+    <Content Include="resources\cow4.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\image.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

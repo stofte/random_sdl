@@ -73,7 +73,7 @@ namespace Board
 
         void Events_Tick(object sender, TickEventArgs e)
         {
-            // randomly start animations
+            // randomly start "animations"
             if (--next == 0)
             {
                 var flash = new Flash { Surface = next_surface(), Point = next_point(), Tick = random.Next(100, 1000) };
@@ -96,7 +96,7 @@ namespace Board
                 }
                 else
                 {
-                    Sound snd = new Sound("resources/cow4.wav");
+                    var snd = new Sound("resources/cow4.wav");
                     snd.Volume = 40;
                     snd.Play();
                 }
